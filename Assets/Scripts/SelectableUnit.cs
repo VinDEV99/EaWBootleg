@@ -11,6 +11,9 @@ public class SelectableUnit : MonoBehaviour
     //private SpriteRenderer SelectionSprite;
     private GameObject SelectionSprite;
 
+    public AudioSource source;
+    public AudioClip clip;
+
     private void Awake()
     {
         SelectionManager.Instance.AvailableUnits.Add(this);
@@ -26,6 +29,7 @@ public class SelectableUnit : MonoBehaviour
     public void OnSelected()
     {
         SelectionSprite.gameObject.SetActive(true);
+        source.PlayOneShot(clip);
     }
 
     //same as above but on deselect
